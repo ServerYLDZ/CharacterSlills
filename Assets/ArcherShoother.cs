@@ -65,8 +65,8 @@ public class ArcherShoother : MonoBehaviour
                 Vector3 aimDir = (mouseWorldPos - arrowTransform.position).normalized;
                 
                 Instantiate(arrowPrefab, arrowTransform.position,Quaternion.LookRotation(aimDir,Vector3.up));
-               
-                    canShoot = false;
+                tpController._animator.SetBool("Reload", true);
+                canShoot = false;
                     StartCoroutine(ResetShoot());
                 }
 
@@ -78,6 +78,7 @@ public class ArcherShoother : MonoBehaviour
                 tpController.RotateOnMove(true);
                 crossAir.SetActive(false);
                 tpController._animator.SetBool("Aim", false);
+
                 tpController._animator.SetLayerWeight(1, Mathf.Lerp(tpController._animator.GetLayerWeight(1), 0f, Time.deltaTime * 10));
 
             }
@@ -91,6 +92,7 @@ public class ArcherShoother : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (starterAssetsInputs.Shoot)
         {
+            tpController._animator.SetBool("Reload", false);
             starterAssetsInputs.Shoot = false;
             canShoot = true;
         }
