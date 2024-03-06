@@ -1383,7 +1383,7 @@ ParticleSystem:
         ctime0: 5041
         ctime1: 21605
         ctime2: 39969
-        ctime3: 42250
+        ctime3: 65535
         ctime4: 50652
         ctime5: 0
         ctime6: 0
@@ -4918,8 +4918,8 @@ Transform:
   m_GameObject: {fileID: 2020661361868494885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.05, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2026374199686680951}
   - {fileID: 2622091061617969560}
@@ -4938,7 +4938,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 3
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -9803,7 +9803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2622091061617969560
 Transform:
   m_ObjectHideFlags: 0
@@ -10009,7 +10009,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.5235849, g: 0.8179983, b: 1, a: 1}
+      maxColor: {r: 0.5235849, g: 0.8179983, b: 1, a: 0}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0, g: 1, b: 1, a: 1}
@@ -14685,7 +14685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3053270703620502885
 Transform:
   m_ObjectHideFlags: 0

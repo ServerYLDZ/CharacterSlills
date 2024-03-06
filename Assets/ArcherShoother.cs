@@ -4,7 +4,7 @@ using UnityEngine;
 using StarterAssets;
 using Cinemachine;
 
-public class ArcherShoother : MonoBehaviour
+public  class ArcherShoother : CharacterBase
 {
     [SerializeField] private CinemachineVirtualCamera aimVirtualCam;
     private ThirdPersonController tpController;
@@ -19,7 +19,7 @@ public class ArcherShoother : MonoBehaviour
 
     private Vector3 mouseWorldPos;
     private Transform target;
-    private bool canShoot=true;
+   [SerializeField] private bool canShoot=true;
     public ParticleSystem hitEffect;
 
     private void Awake()
@@ -61,13 +61,12 @@ public class ArcherShoother : MonoBehaviour
 
             if (starterAssetsInputs.Shoot && canShoot)
                 {
-                Instantiate(hitEffect, mouseWorldPos, transform.rotation);
-                Vector3 aimDir = (mouseWorldPos - arrowTransform.position).normalized;
-                
-                Instantiate(arrowPrefab, arrowTransform.position,Quaternion.LookRotation(aimDir,Vector3.up));
-                tpController._animator.SetBool("Reload", true);
-                canShoot = false;
-                    StartCoroutine(ResetShoot());
+                Attack();
+                }
+            if (starterAssetsInputs.isBasicAttack && canShoot)
+                {
+                BasicSkill();
+                Debug.Log("ba");
                 }
 
             }
@@ -96,5 +95,37 @@ public class ArcherShoother : MonoBehaviour
             starterAssetsInputs.Shoot = false;
             canShoot = true;
         }
+    }
+    IEnumerator ResetBasicShot()
+    {
+        yield return new WaitForSeconds(1);
+        if (starterAssetsInputs.isBasicAttack)
+        {
+            tpController._animator.SetBool("BasicAttack", false);
+            starterAssetsInputs.isBasicAttack = false;
+            canShoot = true;
+        }
+    }
+
+    public override void Attack()
+    {
+        Instantiate(hitEffect, mouseWorldPos, transform.rotation);
+        Vector3 aimDir = (mouseWorldPos - arrowTransform.position).normalized;
+
+        Instantiate(arrowPrefab, arrowTransform.position, Quaternion.LookRotation(aimDir, Vector3.up));
+        tpController._animator.SetBool("Reload", true);
+        canShoot = false;
+        StartCoroutine(ResetShoot());
+    }
+
+    public override void BasicSkill()
+    {
+        Instantiate(hitEffect, mouseWorldPos, transform.rotation);
+        Vector3 aimDir = (mouseWorldPos - arrowTransform.position).normalized;
+
+        Instantiate(arrowPrefab, arrowTransform.position, Quaternion.LookRotation(aimDir, Vector3.up));
+        tpController._animator.SetBool("BasicAttack", true);
+        canShoot = false;
+        StartCoroutine(ResetBasicShot());
     }
 }

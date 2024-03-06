@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool aim;
 		public bool Shoot;
+		public bool isBasicAttack;
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -52,10 +53,14 @@ namespace StarterAssets
 		{
 			ShootInput(value.isPressed);
 		}
+        public void OnBasicAttack(InputValue value)
+        {
+            BasicAttackInput(value.isPressed);
+        }
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -69,8 +74,12 @@ namespace StarterAssets
 		{
 			jump = newJumpState;
 		}
-
-		public void SprintInput(bool newSprintState)
+        public void BasicAttackInput(bool newJumpState)
+        {
+            if (aim)
+           isBasicAttack = newJumpState;
+        }
+        public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
 		}

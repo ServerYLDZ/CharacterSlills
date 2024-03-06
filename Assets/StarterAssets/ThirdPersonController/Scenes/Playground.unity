@@ -1446,7 +1446,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Standing Idle 03 Examine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 4e4313d5b972e9a4eb44ff6df91b655d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e4313d5b972e9a4eb44ff6df91b655d, type: 3}
 --- !u!1 &2114283753834967212
 GameObject:
