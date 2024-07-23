@@ -15,6 +15,7 @@ public  class ArcherShoother : CharacterBase
     [SerializeField] private LayerMask aimMask;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private  GameObject arrowPrefab;
+    [SerializeField] private GameObject B_Skill_arrowPrefab;
     [SerializeField] private Transform arrowTransform;
 
     private Vector3 mouseWorldPos;
@@ -98,7 +99,7 @@ public  class ArcherShoother : CharacterBase
     }
     IEnumerator ResetBasicShot()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(basicSkillColdown);
         if (starterAssetsInputs.isBasicAttack)
         {
             tpController._animator.SetBool("BasicAttack", false);
@@ -120,12 +121,17 @@ public  class ArcherShoother : CharacterBase
 
     public override void BasicSkill()
     {
-        Instantiate(hitEffect, mouseWorldPos, transform.rotation);
-        Vector3 aimDir = (mouseWorldPos - arrowTransform.position).normalized;
-
-        Instantiate(arrowPrefab, arrowTransform.position, Quaternion.LookRotation(aimDir, Vector3.up));
+       
         tpController._animator.SetBool("BasicAttack", true);
         canShoot = false;
         StartCoroutine(ResetBasicShot());
+        
+    }
+    public void  B_SkillEffect()
+    {     
+        Instantiate(hitEffect, mouseWorldPos, transform.rotation);
+        Vector3 aimDir = (mouseWorldPos - arrowTransform.position).normalized;
+        Instantiate(B_Skill_arrowPrefab, arrowTransform.position, Quaternion.LookRotation(aimDir, Vector3.up));
+
     }
 }

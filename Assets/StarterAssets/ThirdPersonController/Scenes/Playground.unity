@@ -1128,6 +1128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb7c2b3208f73334a840057a764f6a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicSkillColdown: 2
   aimVirtualCam: {fileID: 779222674}
   AimSensivity: 0.5
   NormalSensivity: 1
@@ -1139,7 +1140,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   arrowPrefab: {fileID: 6739205682129669144, guid: ed91096e1762be7409b26a4560b07a3d, type: 3}
+  B_Skill_arrowPrefab: {fileID: 6739205682129669144, guid: 366e8891ed5f1db42b9ef1e8e16e6bee, type: 3}
   arrowTransform: {fileID: 360733926}
+  canShoot: 1
   hitEffect: {fileID: 2219189024081856779, guid: 895c6d094b6b213418cddcfb520298e9, type: 3}
 --- !u!1 &1764214107
 GameObject:
@@ -1495,6 +1498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2114283754330233426}
   - component: {fileID: 2114283754330233425}
+  - component: {fileID: 2114283754330233427}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1579,6 +1583,26 @@ Transform:
   m_Father: {fileID: 2114283753834967213}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &2114283754330233427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114283754330233424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1001 &8345070700268369567
 PrefabInstance:
   m_ObjectHideFlags: 0

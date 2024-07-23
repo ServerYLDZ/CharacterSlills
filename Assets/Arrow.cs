@@ -13,7 +13,8 @@ public class Arrow : MonoBehaviour
     }
     void Start()
     {
-        rb.velocity += transform.forward * speed;
+        // rb.velocity += transform.forward * speed;
+        rb.AddForce(transform.forward * speed);
     }
     private void OnTriggerEnter(Collider other)
     {

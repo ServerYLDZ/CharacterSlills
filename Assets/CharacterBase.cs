@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class CharacterBase : MonoBehaviour
 {
+    public float basicSkillColdown;
+        
     public abstract void Attack();
     public abstract void BasicSkill();
 }
